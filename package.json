@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"**/*.js\" --write \"**/*.jsx\" --write \"**/*.tsx",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "prepare": "husky install"
   },
   "lint-staged": {
     "*.js": [
