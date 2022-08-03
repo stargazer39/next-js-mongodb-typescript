@@ -6,7 +6,23 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write \"**/*.js\" --write \"**/*.jsx\" --write \"**/*.tsx",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.jsx": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.tsx": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "dependencies": {
     "mongodb": "^4.8.1",
@@ -21,7 +37,10 @@
     "autoprefixer": "^10.4.8",
     "eslint": "8.21.0",
     "eslint-config-next": "12.2.3",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "postcss": "^8.4.14",
+    "prettier": "^2.7.1",
     "tailwindcss": "^3.1.7",
     "typescript": "4.7.4"
   }

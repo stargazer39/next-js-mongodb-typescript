@@ -1,14 +1,14 @@
-import Head from 'next/head'
-import clientPromise from '../lib/mongodb'
-import React from "react"
-import Header from '../components/header'
-import Hello from '../components/hello'
+import Head from 'next/head';
+import clientPromise from '../lib/mongodb';
+import React from 'react';
+import Header from '../components/header';
+import Hello from '../components/hello';
 
 interface HomeProps {
-  isConnected :boolean
+  isConnected: boolean;
 }
 
-export default function Home({ isConnected } : HomeProps) {
+export default function Home({ isConnected }: HomeProps) {
   return (
     <>
       <Head>
@@ -16,14 +16,14 @@ export default function Home({ isConnected } : HomeProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <Hello isConnected={isConnected}/>
+      <Hello isConnected={isConnected} />
     </>
-  )
+  );
 }
 
 export async function getServerSideProps(context: any) {
   try {
-    await clientPromise
+    await clientPromise;
     // `await clientPromise` will use the default database passed in the MONGODB_URI
     // However you can use another database (e.g. myDatabase) by replacing the `await clientPromise` with the following code:
     //
@@ -35,11 +35,11 @@ export async function getServerSideProps(context: any) {
 
     return {
       props: { isConnected: true },
-    }
+    };
   } catch (e) {
-    console.error(e)
+    console.error(e);
     return {
       props: { isConnected: false },
-    }
+    };
   }
 }
